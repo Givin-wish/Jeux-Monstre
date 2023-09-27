@@ -1,114 +1,54 @@
-// Interface 1 : InterfaceJoueur
-interface InterfaceJoueur {
-    void attaquer();
-    void subirDegats();
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.ArrayList;
 
-}
 
-//Interface 2 : InterfaceMonstre
-interface InterfaceMonstre {
-    void attaquer();
-    void subirDegts();
+class Voiture {
+    private String marque;
+    private String modele;
+    private int anneeFabrication;
+    private double prix;
+    private int nombreVoituresCreer;
+  private static ArrayList<String> marquesDisponibles = new ArrayList<>();
 
-    void subirDegats();
-}
-
-// Interface 3 : InterfaceObjet
-interface InterfaceObjet {
-    void utiliser();
-    void ramasser();
-}
-
-// Classe principale : Main
-public class Main {
-    public static void main(String[] args) {
-
-        // Classe 1 : Joueur
-        class Joueur implements InterfaceJoueur {
-            private String nom;
-            private int pointsVie;
-            private int pointsAttaque;
-            private int pointsDefense;
-
-            public Joueur(String nom, int pointsVie, int pointsAttaque, int pointsDefense) {
-                this.nom = nom;
-                this.pointsVie = pointsVie;
-                this.pointsAttaque = pointsAttaque;
-                this.pointsDefense = pointsDefense;
-            }
-
-            @Override
-            public void attaquer() {
-            }
-
-            @Override
-            public void subirDegats() {
-            }
-        }
-
-        // Classe 2 : Monstre
-        class Monstre implements InterfaceMonstre {
-            private String nom;
-            private int pointsVie;
-            private int pointsAttaque;
-            private int pointsDefense;
-
-            public Monstre(String nom, int pointsVie, int pointsAttaque, int pointsDefense) {
-                this.nom = nom;
-                this.pointsVie = pointsVie;
-                this.pointsAttaque = pointsAttaque;
-                this.pointsDefense = pointsDefense;
-            }
-
-            @Override
-            public void attaquer() {
-
-            }
-
-            @Override
-            public void subirDegts() {
-
-            }
-
-            @Override
-            public void subirDegats() {
-            }
-        }
-        class Objet implements InterfaceObjet {
-            private String nom;
-            private int pointsUtilite;
-
-            public Objet(String nom, int pointsUtilite) {
-                this.nom = nom;
-                this.pointsUtilite = pointsUtilite;
-            }
-
-            @Override
-            public void utiliser() {
-                // Implémentation de l'utilisation de l'objet
-            }
-
-            @Override
-            public void ramasser() {
-                // Implémentation du ramassage de l'objet
-            }
-        }
-
-        //Création d'instances des différentes classes
-        Joueur joueur = new Joueur("Joueur 1", 100, 20, 10);
-        Monstre monstre = new Monstre("Monstre 1", 50, 15, 5);
-        Objet objet = new Objet("Objet 1", 10);
-
-        
-        joueur.attaquer();
-        joueur.subirDegats();
-        monstre.attaquer();
-        monstre.subirDegats();
-        objet.utiliser();
-        objet.ramasser();
+    public Voiture() {
+        this.marque = "Inconnue";
+        this.modele = "Inconnu";
+        this.anneeFabrication = 0;
+        this.prix = 0.0;
+        this.nombreVoituresCreer++;
     }
-}
 
+    public Voiture(String marque, String modele, int anneeFabrication, double prix) {
+        this.marque = marque;
+        this.modele = modele;
+        this.anneeFabrication = anneeFabrication;
+        this.prix = prix;
+        nombreVoituresCreer++;
+    }
 
+    public Voiture(String modele, int anneeFabrication) {
+        this.modele = modele;
+        this.anneeFabrication = anneeFabrication;
+        this.marque = marquesDisponibles.get(new Random().nextInt(marquesDisponibles.size()));
+        this.prix = Math.random() * 50000 + 10000;
+        nombreVoituresCreer++;
+    }
 
+    class Moteur {
+        private String type;
+        private int puissance;
 
+        public Moteur(String type, int puissance) {
+            this.type = type;
+            this.puissance = puissance;
+        }
+
+    }
+
+    static class Concession {
+        private String nom;
+        private String adresse;
+       }
+
+    }
